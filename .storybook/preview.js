@@ -3,7 +3,7 @@ import GlobalStyles from '../src/styles/global'
 import theme from '../src/styles/theme'
 export const parameters = {
   backgrounds: {
-    default: 'photo-dark',
+    default: 'photo-light',
     values: [
       {
         name: 'photo-light',

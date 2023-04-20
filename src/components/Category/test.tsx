@@ -1,13 +1,48 @@
 import { screen } from '@testing-library/react'
-import renderWithTheme from '../../utils/renderWithTheme'
+import useEvent from '@testing-library/user-event'
 import Category from '.'
+import renderWithTheme from '../../utils/renderWithTheme'
+import theme from 'styles/theme'
+
+const clicked = jest.fn()
+const props = { title: 'Category', img: 'img.png', alt: 'caregory' }
 
 describe('<Category />', () => {
-  it('should render the heading', () => {
-    renderWithTheme(<Category />)
+  it('should call function when is clicked', async () => {
+    renderWithTheme(<Category isActived={true} onClick={clicked} />)
 
-    expect(
-      screen.getByRole('heading', { name: /Category/i }),
-    ).toBeInTheDocument()
+    const button = screen.getByLabelText('button')
+
+    await useEvent.click(button)
+
+    expect(clicked).toBeCalled()
+  })
+
+  it('should be active styled', async () => {
+    renderWithTheme(
+      <Category title={props.title} isActived={true} onClick={clicked} />,
+    )
+
+    const title = screen.getByText(props.title)
+
+    expect(title.nextSibling).toHaveStyle({
+      backgroundColor: theme.colors.background[900],
+    })
+  })
+
+  it('should render image', () => {
+    renderWithTheme(
+      <Category
+        isActived={true}
+        title={props.title}
+        img={props.img}
+        alt={props.alt}
+      />,
+    )
+
+    const image = screen.getByRole('img', { name: props.alt })
+    expect(image).toBeInTheDocument()
+    expect(image).toHaveAttribute('src', props.img)
+    expect(image).toHaveAttribute('alt', props.alt)
   })
 })
