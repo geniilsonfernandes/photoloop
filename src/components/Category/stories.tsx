@@ -8,6 +8,7 @@ export default {
   args: {
     img: 'https://source.unsplash.com/user/willianjusten/1042x580',
     title: 'Category',
+    seeMore: false,
   },
 } as Meta<CategoryProps>
 

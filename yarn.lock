@@ -2930,6 +2930,11 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.9.1.tgz#7f554e7368c9ab679a11f4a042ca17149d70cf12"
   integrity sha512-DvJbbn3dUgMxDnJLH+RZQPnXak1h4ZVYQ7CWiFWjQwBFkVajT4rfw2PdpHLTSTwxrYfnoEXkuBiwkDm6tPMQeA==
 
+"@react-icons/all-files@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@react-icons/all-files/-/all-files-4.1.0.tgz#477284873a0821928224b6fc84c62d2534d6650b"
+  integrity sha512-hxBI2UOuVaI3O/BhQfhtb4kcGn9ft12RWAFVMUeNjqqhLsHvFtzIkFaptBJpFDANTKoDfdVoHTKZDlwKCACbMQ==
+
 "@rollup/plugin-babel@^5.2.0":
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-babel/-/plugin-babel-5.3.0.tgz#9cb1c5146ddd6a4968ad96f209c50c62f92f9879"
@@ -12474,6 +12479,11 @@ react-helmet-async@^1.0.7:
     prop-types "^15.7.2"
     react-fast-compare "^3.2.0"
     shallowequal "^1.1.0"
+
+react-icons@^4.8.0:
+  version "4.8.0"
+  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.8.0.tgz#621e900caa23b912f737e41be57f27f6b2bff445"
+  integrity sha512-N6+kOLcihDiAnj5Czu637waJqSnwlMNROzVZMhfX68V/9bu9qHaMIJC4UdozWoOk57gahFCNHwVvWzm0MTzRjg==
 
 react-inspector@^5.1.0:
   version "5.1.0"

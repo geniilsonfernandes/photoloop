@@ -9,7 +9,7 @@ const props = { title: 'Category', img: 'img.png', alt: 'caregory' }
 
 describe('<Category />', () => {
   it('should call function when is clicked', async () => {
-    renderWithTheme(<Category isActived={true} onClick={clicked} />)
+    renderWithTheme(<Category onClick={clicked} />)
 
     const button = screen.getByLabelText('button')
 
@@ -19,11 +19,13 @@ describe('<Category />', () => {
   })
 
   it('should be active styled', async () => {
-    renderWithTheme(
-      <Category title={props.title} isActived={true} onClick={clicked} />,
-    )
+    renderWithTheme(<Category title={props.title} onClick={clicked} />)
 
     const title = screen.getByText(props.title)
+
+    const button = screen.getByLabelText('button')
+
+    await useEvent.click(button)
 
     expect(title.nextSibling).toHaveStyle({
       backgroundColor: theme.colors.background[900],
@@ -32,12 +34,7 @@ describe('<Category />', () => {
 
   it('should render image', () => {
     renderWithTheme(
-      <Category
-        isActived={true}
-        title={props.title}
-        img={props.img}
-        alt={props.alt}
-      />,
+      <Category title={props.title} img={props.img} alt={props.alt} />,
     )
 
     const image = screen.getByRole('img', { name: props.alt })

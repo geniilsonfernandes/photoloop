@@ -1,8 +1,30 @@
-import styled, { css } from 'styled-components'
+import { GiArmoredBoomerang } from 'react-icons/gi'
+import styled, { DefaultTheme, css } from 'styled-components'
 
 type Props = {
-  isActive: boolean
+  isActive?: boolean
+  modify?: boolean
 }
+
+const modifiers = {
+  seeMore: (theme: DefaultTheme) => css`
+    border: 3px solid ${theme.colors.text[900]};
+    border-radius: ${theme.radius.md};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  `,
+}
+
+export const IconSeeMore = styled(GiArmoredBoomerang).attrs({
+  size: 18,
+})<Props>`
+  ${({ theme, isActive }) => css`
+    color: ${theme.colors.text[900]};
+    transform: ${isActive && 'rotate(90deg)'};
+    transition: ${theme.transitions.bounce};
+  `}
+`
 
 export const Wrapper = styled.button`
   display: flex;
@@ -15,9 +37,12 @@ export const Wrapper = styled.button`
   cursor: pointer;
 `
 
-export const ContainerImage = styled.div`
-  width: 90px;
-  height: 60px;
+export const ContainerImage = styled.div<Props>`
+  ${({ theme, modify }) => css`
+    width: 90px;
+    height: 60px;
+    ${modify && modifiers.seeMore(theme)}
+  `}
 `
 
 export const Image = styled.img`
@@ -41,10 +66,12 @@ export const Title = styled.h1`
   `}
 `
 
-export const Border = styled.div<Props>`
+export const BorderBotton = styled.div<Props>`
   ${({ theme, isActive }) => css`
     width: 70%;
     height: 2px;
+    transform: ${isActive && 'scaleX(-1)'};
+    transition: ${theme.transitions.bounce};
     background-color: ${isActive && theme.colors.background[900]};
   `}
 `
