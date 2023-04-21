@@ -35,6 +35,7 @@ export const Wrapper = styled.button`
   background: none;
   border: none;
   cursor: pointer;
+  height: 100px;
 `
 
 export const ContainerImage = styled.div<Props>`

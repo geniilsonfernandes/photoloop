@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import * as S from './styles'
 
 export type CategoryProps = {
@@ -7,7 +6,8 @@ export type CategoryProps = {
   alt?: string
   seeMore?: boolean
   onClick?: () => void
-}
+  active?: boolean
+} & React.ButtonHTMLAttributes<HTMLButtonElement>
 
 const Category = ({
   seeMore = false,
@@ -15,27 +15,29 @@ const Category = ({
   onClick,
   title,
   img,
+  active = false,
+  ...props
 }: CategoryProps) => {
-  const [isClicked, setIsClicked] = useState(false)
-
   const handleClick = () => {
     onClick && onClick()
-    setIsClicked(!isClicked)
   }
 
   return (
-    <S.Wrapper aria-label="button" onClick={handleClick}>
+    <S.Wrapper
+      aria-label={seeMore ? 'Ver mais' : title}
+      onClick={handleClick}
+      {...props}
+    >
       <S.ContainerImage modify={seeMore}>
         {!seeMore ? (
           <S.Image src={img} alt={alt} />
         ) : (
-          <S.IconSeeMore isActive={isClicked} />
+          <S.IconSeeMore isActive={active} />
         )}
       </S.ContainerImage>
-
       <S.ContainerTitle>
         <S.Title>{title}</S.Title>
-        <S.BorderBotton isActive={isClicked} />
+        <S.BorderBotton isActive={seeMore ? false : active} />
       </S.ContainerTitle>
     </S.Wrapper>
   )
