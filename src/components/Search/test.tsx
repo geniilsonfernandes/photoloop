@@ -18,7 +18,7 @@ describe('<Search />', () => {
 
   it('should get the input value', async () => {
     renderWithTheme(
-      <Search placeholder={props.placeholder} onChange={function_mock} />,
+      <Search placeholder={props.placeholder} onChange={function_mock} />
     )
     const inputSearch = screen.getByPlaceholderText(props.placeholder)
 
