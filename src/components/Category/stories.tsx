@@ -1,10 +1,15 @@
 import { Story, Meta } from '@storybook/react'
 
-import Category from '.'
+import Category, { CategoryProps } from '.'
 
 export default {
   component: Category,
   title: 'Category',
-} as Meta
+  args: {
+    img: 'https://source.unsplash.com/user/willianjusten/1042x580',
+    title: 'Category',
+    seeMore: false,
+  },
+} as Meta<CategoryProps>
 
-export const Basic: Story = () => <Category />
+export const Basic: Story<CategoryProps> = (args) => <Category {...args} />
