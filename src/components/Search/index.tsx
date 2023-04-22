@@ -5,7 +5,7 @@ export type SearchProps = {
   onChange?: (value: string) => void
 } & React.InputHTMLAttributes<HTMLInputElement>
 
-const Search = ({ placeholder, onChange }: SearchProps) => {
+const Search = ({ placeholder, onChange, ...rest }: SearchProps) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
     onChange && onChange(value)
@@ -13,7 +13,7 @@ const Search = ({ placeholder, onChange }: SearchProps) => {
 
   return (
     <>
-      <S.Wrapper onChange={handleChange} placeholder={placeholder} />
+      <S.Wrapper {...rest} onChange={handleChange} placeholder={placeholder} />
     </>
   )
 }
