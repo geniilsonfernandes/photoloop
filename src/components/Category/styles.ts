@@ -2,7 +2,7 @@ import { GiArmoredBoomerang } from 'react-icons/gi'
 import styled, { DefaultTheme, css } from 'styled-components'
 
 type Props = {
-  is_active?: boolean
+  is_active?: string
   modify?: boolean
 }
 
@@ -21,7 +21,7 @@ export const IconSeeMore = styled(GiArmoredBoomerang).attrs({
 })<Props>`
   ${({ theme, is_active }) => css`
     color: ${theme.colors.text[900]};
-    transform: ${is_active && 'rotate(90deg)'};
+    transform: ${is_active === 'true' && 'rotate(90deg)'};
     transition: ${theme.transitions.bounce};
   `}
 `
@@ -71,8 +71,8 @@ export const BorderBotton = styled.div<Props>`
   ${({ theme, is_active }) => css`
     width: 70%;
     height: 2px;
-    transform: ${is_active && 'scaleX(-1)'};
+    transform: ${is_active === 'true' && 'scaleX(-1)'};
     transition: ${theme.transitions.bounce};
-    background-color: ${is_active && theme.colors.background[900]};
+    background-color: ${is_active === 'true' && theme.colors.background[900]};
   `}
 `

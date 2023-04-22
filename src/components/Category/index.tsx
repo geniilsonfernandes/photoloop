@@ -32,12 +32,12 @@ const Category = ({
         {!seeMore ? (
           <S.Image src={img} alt={alt} />
         ) : (
-          <S.IconSeeMore is_active={active} />
+          <S.IconSeeMore is_active={active.toString()} />
         )}
       </S.ContainerImage>
       <S.ContainerTitle>
         <S.Title>{title}</S.Title>
-        <S.BorderBotton is_active={seeMore ? false : active} />
+        <S.BorderBotton is_active={seeMore ? 'false' : active.toString()} />
       </S.ContainerTitle>
     </S.Wrapper>
   )
