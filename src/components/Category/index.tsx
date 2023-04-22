@@ -16,7 +16,7 @@ const Category = ({
   title,
   img,
   active = false,
-  ...props
+  ...rest
 }: CategoryProps) => {
   const handleClick = () => {
     onClick && onClick()
@@ -26,18 +26,18 @@ const Category = ({
     <S.Wrapper
       aria-label={seeMore ? 'Ver mais' : title}
       onClick={handleClick}
-      {...props}
+      {...rest}
     >
       <S.ContainerImage modify={seeMore}>
         {!seeMore ? (
           <S.Image src={img} alt={alt} />
         ) : (
-          <S.IconSeeMore isActive={active} />
+          <S.IconSeeMore is_active={active} />
         )}
       </S.ContainerImage>
       <S.ContainerTitle>
         <S.Title>{title}</S.Title>
-        <S.BorderBotton isActive={seeMore ? false : active} />
+        <S.BorderBotton is_active={seeMore ? false : active} />
       </S.ContainerTitle>
     </S.Wrapper>
   )

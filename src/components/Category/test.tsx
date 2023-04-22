@@ -30,7 +30,7 @@ describe('<Category />', () => {
 
   it('should render image with alt', () => {
     renderWithTheme(
-      <Category title={props.title} img={props.img} alt={props.alt} />
+      <Category title={props.title} img={props.img} alt={props.alt} />,
     )
 
     const image = screen.getByRole('img', { name: props.alt })

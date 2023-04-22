@@ -34,7 +34,7 @@ const categories = [
   },
 ]
 
-const categoriesDrawer = [
+export const categoriesDrawer = [
   {
     id: 1342,
     title: 'Todas',
@@ -57,7 +57,7 @@ const categoriesDrawer = [
     seeMore: false,
   },
   {
-    id: 431,
+    id: 43131,
     title: 'Casa',
     img: 'https://images.dog.ceo/breeds/akita/512px-Akita_inu.jpg',
     alt: 'Casa',
@@ -129,14 +129,14 @@ const CategoryList = () => {
 
   const drawer = useModal()
   const [activeCategory, setActiveCategory] = useState<number | null>(
-    categories[0].id
+    categories[0].id,
   )
 
   const handleClick = (id: number) => {
     const isSeeMore = categories.find((category) => category.id === id)
 
     const isDrerwerItem = categoriesDrawer.find(
-      (category) => category.id === id
+      (category) => category.id === id,
     )
 
     if (isDrerwerItem) {
@@ -163,7 +163,7 @@ const CategoryList = () => {
       <S.Categories>
         {categories.map((category) => (
           <Category
-            key={category.title}
+            key={category.id}
             title={category.title}
             img={category.img}
             alt={category.alt}
@@ -174,6 +174,7 @@ const CategoryList = () => {
         ))}
       </S.Categories>
       <S.ContainerDrawer
+        aria-label="containerDrawer"
         isOpen={drawer.isShowing}
         aria-expanded={drawer.isShowing ? 'false' : 'true'}
         rows={gridConfig.rows}
@@ -181,7 +182,8 @@ const CategoryList = () => {
         <S.Drawer colums={gridConfig.colunms}>
           {categoriesDrawer.map((category) => (
             <Category
-              key={category.title}
+              aria-label="categoryDrawer"
+              key={category.id}
               title={category.title}
               img={category.img}
               alt={category.alt}
